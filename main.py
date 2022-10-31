@@ -35,11 +35,14 @@ def enterWebsite(args):
 
 
 def createFolder(url):
-    # 建立番號資料夾
+    # 建立資料夾
     urlSplit = url.split('/')
     dirName = urlSplit[-2]
     if not os.path.exists(dirName):
         os.makedirs(dirName)
+    if not os.path.exists('Video'):
+        os.makedirs('Video')
+        
     folderPath = os.path.join(os.getcwd(), dirName)
 
     return folderPath, dirName
@@ -101,8 +104,6 @@ def get_mp4(ci, folderPath, tsList):
     # 開始爬蟲並下載mp4片段至資料夾
     prepareCrawl(ci, folderPath, tsList)
 
-
-    # In[9]:
 
     videoPath = os.path.join(os.getcwd(), 'Video')
     # 合成mp4
