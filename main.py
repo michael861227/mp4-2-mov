@@ -122,11 +122,16 @@ def main(url):
 
 
 if __name__ == '__main__':
-    str = input('輸入網址(Enter: 1) or 輸入檔案(Enter: 2): ')
+    str = input('輸入網址(Enter: 1) or 輸入代碼(Enter: 2) or 輸入檔案(Enter: 3): ')
     if str == '1':
         url = enterWebsite(args)
         main(url)
     
+    elif str == '2':
+        code = input('輸入Code: ')
+        url = 'https://jable.tv/videos/' + code + '/'
+        main(url)
+
     else: 
         with fileinput.input(files = ('website.txt',)) as file: 
             for line in file: 
